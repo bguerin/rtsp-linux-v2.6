@@ -1,0 +1,5 @@
+rtsp-conntrack (0.6.21) unstable; urgency=low
+
+  * First debianized version
+
+ -- Benoit Guerin <benoit.guerin@gmail.com>  Wed, 22 Jun 2011 22:24:54 +0200

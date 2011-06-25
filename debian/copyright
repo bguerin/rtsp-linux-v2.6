@@ -1,0 +1,14 @@
+This is the Debian GNU/Linux prepackaged version of rtsp-conntrack.
+It was packaged by Cajus Pollmeier <cajus@debian.org>
+from sources obtained from https://github.com/maru-sama/rtsp-linux-v2.6.git
+
+Copyright:
+
+Copyright (C) 2011 Benoit Guerin
+
+License:
+
+rtsp-conntrack is distributed under the terms of the GNU General Public License,
+version 2 or later. On Debian GNU/Linux system you can find a copy of this
+license in `/usr/share/common-licenses/GPL-2'.
+
