@@ -1,0 +1,11 @@
+*.ko
+*.o
+*.mod.c
+*.cmd
+Module.symvers
+modules.order
+.tmp_versions
+debian/files
+debian/rtsp-conntrack-source.debhelper.log
+debian/rtsp-conntrack-source.substvars
+debian/rtsp-conntrack-source
