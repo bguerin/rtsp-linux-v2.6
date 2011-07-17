@@ -3,12 +3,12 @@ Section: non-free/admin
 Priority: optional
 Maintainer: Benoit Guerin <benoit.guerin@gmail.com>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 3.9.1
+Standards-Version: 3.9.2
 Homepage: https://github.com/maru-sama/rtsp-linux-v2.6.git
 
 Package: rtsp-conntrack-modules-_KVERS_
 Architecture: any
-Depends: linux-modules-_KVERS_ | linux-image-_KVERS_
+Depends: linux-modules-_KVERS_ | linux-image-_KVERS_, ${misc:Depends}
 Provides: rtsp-conntrack-modules
 Description: rtsp-conntrack modules for Linux (kernel _KVERS_)
  This package contains a netfilter module to track RTSP connections to
