@@ -3,23 +3,13 @@ Section: non-free/admin
 Priority: optional
 Maintainer: Benoit Guerin <benoit.guerin@gmail.com>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 3.9.1
+Standards-Version: 3.9.2
 Homepage: https://github.com/maru-sama/rtsp-linux-v2.6.git
 
-Package: rtsp-conntrack-modules-2.6.39-20110717
-Architecture: any
-Depends: linux-modules-2.6.39-20110717 | linux-image-2.6.39-20110717
-Provides: rtsp-conntrack-modules
-Description: rtsp-conntrack modules for Linux (kernel 2.6.39-20110717)
+Package: rtsp-conntrack-source
+Architecture: all
+Depends: ${misc:Depends} 
+Description: RTSP Conntrack module
  This package contains a netfilter module to track RTSP connections to
  do transparent NAT.
  .
- This package contains the set of loadable kernel modules for RTSP connection
- tracking.
- .
- This package contains the compiled kernel modules for 2.6.39-20110717
- .
- If you have compiled your own kernel, you will most likely need to build your
- own rtsp-conntrack-modules. The rtsp-conntrack-source package has been provided for
- use with the Debian's module-assistant or kernel-package utilities to produce a
- version of rtsp-conntrack-modules for your kernel.

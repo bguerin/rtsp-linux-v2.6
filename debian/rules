@@ -59,23 +59,20 @@ binary-modules:
 	dh_prep
 
 
-binary-indep: build install
-	dh_testdir -i
-	dh_testroot -i
-	dh_installchangelogs  -i
-	dh_installdocs -i
-	dh_installexamples -i
-	dh_link -i
-	dh_compress -i
-	dh_fixperms -i
-	dh_installdeb -i
-	dh_installdeb -i
-	dh_shlibdeps -i
-	dh_gencontrol -i
-	dh_md5sums -i
-	dh_builddeb -i
+binary: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs
+	dh_installexamples
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
 
-binary-arch:
-
-binary: binary-indep
-.PHONY: build clean binary-indep binary-arch binary install binary-modules kdist kdist_configure kdist_image kdist_clean
+.PHONY: build clean binary install binary-modules kdist kdist_configure kdist_image kdist_clean

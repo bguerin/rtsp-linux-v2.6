@@ -20,6 +20,6 @@ Description: rtsp-conntrack modules for Linux (kernel _KVERS_)
  This package contains the compiled kernel modules for _KVERS_
  .
  If you have compiled your own kernel, you will most likely need to build your
- own rtsp-conntrack-modules. The rtsp-conntrack-source package has been provided for
- use with the Debian's module-assistant or kernel-package utilities to produce a
- version of rtsp-conntrack-modules for your kernel.
+ own rtsp-conntrack-modules. The rtsp-conntrack-source package has been
+ provided for use with the Debian's module-assistant or kernel-package utilities
+ to produce a version of rtsp-conntrack-modules for your kernel.
