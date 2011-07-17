@@ -9,3 +9,5 @@ debian/files
 debian/rtsp-conntrack-source.debhelper.log
 debian/rtsp-conntrack-source.substvars
 debian/rtsp-conntrack-source
+debian/*.backup
+debian/*.debhelper.log

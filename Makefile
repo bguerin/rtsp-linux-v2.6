@@ -9,15 +9,15 @@ else
 
 # Normal Makefile
 
-KERNELDIR := /lib/modules/`uname -r`/build
+KERNELSRC := /lib/modules/`uname -r`/build
 all: 
-	$(MAKE) -C $(KERNELDIR) M=`pwd` modules
+	$(MAKE) -C $(KERNELSRC) M=`pwd` modules
 
 debug:
-	$(MAKE) -C $(KERNELDIR) EXTRA_CFLAGS=-DDEBUG M=`pwd` modules
+	$(MAKE) -C $(KERNELSRC) EXTRA_CFLAGS=-DDEBUG M=`pwd` modules
 
 modules_install:
-	$(MAKE) -C $(KERNELDIR) M=`pwd` modules_install
+	$(MAKE) -C $(KERNELSRC) M=`pwd` modules_install
 
 clean:
 	rm -rf *.o *.ko *.mod.c .*.cmd Module.symvers modules.order .tmp_versions
