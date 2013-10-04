@@ -1,25 +1,19 @@
 Source: rtsp-conntrack
-Section: non-free/admin
+Section: kernel
 Priority: optional
 Maintainer: Benoit Guerin <benoit.guerin@gmail.com>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 3.9.2
-Homepage: https://github.com/maru-sama/rtsp-linux-v2.6.git
+Standards-Version: 3.9.4
+Homepage: https://github.com/maru-sama/rtsp-linux-v2.6
+Vcs-Git: git://github.com/maru-sama/rtsp-linux-v2.6.git
+Vcs-Browser: https://github.com/maru-sama/rtsp-linux-v2.6
 
 Package: rtsp-conntrack-modules-_KVERS_
 Architecture: any
-Depends: linux-modules-_KVERS_ | linux-image-_KVERS_, ${misc:Depends}
+Depends: linux-modules-_KVERS_ | linux-image-_KVERS_
 Provides: rtsp-conntrack-modules
-Description: rtsp-conntrack modules for Linux (kernel _KVERS_)
+Description: RTSP Conntrack module for Linux _KVERS_
  This package contains a netfilter module to track RTSP connections to
  do transparent NAT.
  .
- This package contains the set of loadable kernel modules for RTSP connection
- tracking.
- .
- This package contains the compiled kernel modules for _KVERS_
- .
- If you have compiled your own kernel, you will most likely need to build your
- own rtsp-conntrack-modules. The rtsp-conntrack-source package has been
- provided for use with the Debian's module-assistant or kernel-package utilities
- to produce a version of rtsp-conntrack-modules for your kernel.
+ This package contains the binary module for _KVERS_.
