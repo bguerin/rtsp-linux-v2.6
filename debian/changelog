@@ -1,3 +1,9 @@
+rtsp-conntrack (0.7.2) unstable; urgency=low
+
+  * Deleting traces of m-a stuff 
+
+ -- Benoit Guerin <benoit.guerin@gmail.com>  Fri, 04 Oct 2013 12:04:06 +0200
+
 rtsp-conntrack (0.7.1) unstable; urgency=low
 
   * New upstream version
