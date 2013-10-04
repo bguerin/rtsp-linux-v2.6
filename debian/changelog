@@ -1,3 +1,9 @@
+rtsp-conntrack (0.7.1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Benoit Guerin <benoit.guerin@gmail.com>  Fri, 04 Oct 2013 11:48:00 +0200
+
 rtsp-conntrack (0.6.22) unstable; urgency=low
 
   * DKMS way
