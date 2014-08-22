@@ -1,0 +1,10 @@
+language: c
+
+begore_install:
+  - sudo apt-get update
+
+install:
+  - sudo apt-get install devscripts fakeroot gnupg lintian pbuilder
+
+script:
+  - debuild -us -uc
