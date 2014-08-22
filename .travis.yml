@@ -4,7 +4,7 @@ before_install:
   - sudo apt-get update
 
 install:
-  - sudo apt-get install devscripts fakeroot gnupg lintian pbuilder
+  - sudo apt-get install debhelper dkms devscripts fakeroot gnupg lintian pbuilder
 
 script:
   - debuild -us -uc
