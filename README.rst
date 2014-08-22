@@ -1,5 +1,6 @@
-[![Build Status Images](https://travis-ci.org/bguerin/rtsp-linux-v2.6.svg)](https://travis-ci.org/bguerin/rtsp-linux-v2.6)
-
+.. image:: https://travis-ci.org/bguerin/rtsp-linux-v2.6.png
+        :target: https://travis-ci.org/bguerin/rtsp-linux-v2.6
+        
 Disclaimer: 
 ===========
 
