@@ -1,6 +1,6 @@
 language: c
 
-begore_install:
+before_install:
   - sudo apt-get update
 
 install:
