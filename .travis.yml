@@ -2,14 +2,14 @@ language: c
 
 before_install:
   - sudo apt-get update
+  - wget https://ftp-master.debian.org/keys/archive-key-7.0.asc
 
 install:
-  - sudo apt-get install pbuilder debian-archive-keyring
+  - sudo apt-get install pbuilder gnupg
+  - gpg --import $PWD/archive-key-7.0.asc
 
 before_script:
-  - cat /etc/pbuilderrc
-  - cat ~/.pbuilderrc
-  - sudo pbuilder create --distribution wheezy --mirror http://http.debian.net/debian/ --debootstrapopts --keyring=/usr/share/keyrings/debian-archive-keyring.gpg
+  - sudo pbuilder create --distribution wheezy --mirror http://http.debian.net/debian/ --debootstrapopts --keyring=$HOME/.gnupg/pubring.gpg
   - mkdir ~/pbuilderhooks
   - cp /usr/share/doc/pbuilder/examples/B90lintian $HOME/pbuilderhooks
   - echo "HOOKDIR=$HOME/pbuilderhooks/" >> ~/.pbuilderrc
