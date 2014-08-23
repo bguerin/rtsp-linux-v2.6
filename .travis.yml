@@ -4,7 +4,13 @@ before_install:
   - sudo apt-get update
 
 install:
-  - sudo apt-get install debhelper dkms devscripts fakeroot gnupg lintian pbuilder
+  - sudo apt-get install pbuilder debian-archive-keyring
+
+before_script:
+  - sudo pbuilder create --distribution wheezy --mirror http://http.debian.net/debian/ --debootstrapopts "--keyring=/usr/share/keyrings/debian-archive-keyring.gpg"
+  - mkdir ~/pbuilderhooks
+  - cp /usr/share/doc/pbuilder/examples/B90lintian $HOME/pbuilderhooks
+  - echo "HOOKDIR=$HOME/pbuilderhooks/" >> ~/.pbuilderrc
 
 script:
-  - debuild -us -uc
+  - pdebuild
