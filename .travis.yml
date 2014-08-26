@@ -15,7 +15,7 @@ install:
 
 before_script:
   - echo "MIRRORSITE=http://http.debian.net/debian/" >> ~/.pbuilderrc
-  - sudo pbuilder create --distribution ${DIST} --debootstrapopts --keyring=$HOME/.gnupg/pubring.gpg
+  - sudo pbuilder create --override-config --distribution ${DIST} --debootstrapopts --keyring=$HOME/.gnupg/pubring.gpg
   - mkdir ~/pbuilderhooks
   - cp /usr/share/doc/pbuilder/examples/B90lintian $HOME/pbuilderhooks
   - echo "HOOKDIR=$HOME/pbuilderhooks/" >> ~/.pbuilderrc
