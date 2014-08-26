@@ -1,8 +1,7 @@
 language: c
 
 env:
-  - DIST=wheezy
-  - MIRROR=http://http.debian.net/debian/
+  - DIST=wheezy MIRROR=http://http.debian.net/debian/
 
 before_install:
   - sudo apt-get update
