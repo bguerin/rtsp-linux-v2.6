@@ -2,6 +2,7 @@ language: c
 
 env:
   - DIST=wheezy
+  - MIRROR=http://http.debian.net/debian/
 
 before_install:
   - sudo apt-get update
@@ -14,7 +15,7 @@ install:
   - gpg --import $PWD/archive-key-7.0.asc
 
 before_script:
-  - echo "MIRRORSITE=http://http.debian.net/debian/" >> ~/.pbuilderrc
+  - echo "MIRRORSITE=${MIRROR}" >> ~/.pbuilderrc
   - sudo pbuilder create --override-config --distribution ${DIST} --debootstrapopts --keyring=$HOME/.gnupg/pubring.gpg
   - mkdir ~/pbuilderhooks
   - cp /usr/share/doc/pbuilder/examples/B90lintian $HOME/pbuilderhooks
@@ -23,6 +24,4 @@ before_script:
 script:
   - pdebuild --buildresult ..
   - cd ..
-  - echo -e '#!/bin/sh'"\nfor file in /etc/apt/sources.list \$(ls /etc/apt/sources.list.d/*) ; do echo \$file ; cat \$file ; echo ; done " > /tmp/script.sh
-  - sudo sudo pbuilder --execute -- /tmp/script.sh
-  - sudo piuparts -d ${DIST} -p rtsp-conntrack-dkms_*_all.deb
+  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder rtsp-conntrack-dkms_*_all.deb
