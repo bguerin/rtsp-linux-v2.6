@@ -14,7 +14,8 @@ install:
   - gpg --import $PWD/archive-key-7.0.asc
 
 before_script:
-  - sudo pbuilder create --distribution ${DIST} --mirror http://http.debian.net/debian/ --debootstrapopts --keyring=$HOME/.gnupg/pubring.gpg
+  - echo "MIRRORSITE=http://http.debian.net/debian/" >> ~/.pbuilderrc
+  - sudo pbuilder create --distribution ${DIST} --debootstrapopts --keyring=$HOME/.gnupg/pubring.gpg
   - mkdir ~/pbuilderhooks
   - cp /usr/share/doc/pbuilder/examples/B90lintian $HOME/pbuilderhooks
   - echo "HOOKDIR=$HOME/pbuilderhooks/" >> ~/.pbuilderrc
