@@ -23,13 +23,6 @@ before_script:
 script:
   - pdebuild --buildresult ..
   - cd ..
-  - echo '#!/bin/sh
-    for file in /etc/apt/sources.list $(ls /etc/apt/sources.list.d/*) ;
-    do
-      echo $file
-      cat $file
-      echo
-    done
-    ' > /tmp/script.sh
+  - echo -e '#!/bin/sh'"\nfor file in /etc/apt/sources.list \$(ls /etc/apt/sources.list.d/*) ; do echo \$file ; cat \$file ; echo ; done " > /tmp/script.sh
   - sudo sudo pbuilder --execute -- /tmp/script.sh
   - sudo piuparts -d ${DIST} -p rtsp-conntrack-dkms_*_all.deb
