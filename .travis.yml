@@ -22,5 +22,5 @@ before_script:
 
 script:
   - pdebuild --buildresult ..
-  - cd ..
-  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder rtsp-conntrack-dkms_*_all.deb
+  - mount
+  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ../rtsp-conntrack-dkms_*_all.deb
