@@ -20,6 +20,6 @@ before_script:
   - echo "HOOKDIR=$HOME/pbuilderhooks/" >> ~/.pbuilderrc
 
 script:
-  - pdebuild
+  - pdebuild --buildresult ..
   - cd ..
-  - sudo piuparts -d ${DIST} -p $(ls rtsp-conntrack-dkms_*_all.deb)
+  - sudo piuparts -d ${DIST} -p rtsp-conntrack-dkms_*_all.deb
