@@ -22,4 +22,4 @@ before_script:
 script:
   - pdebuild
   - cd ..
-  - sudo piuparts -d ${DIST} -p rtsp-conntrack-dkms_*_all.deb
+  - sudo piuparts -d ${DIST} -p $(ls rtsp-conntrack-dkms_*_all.deb)
