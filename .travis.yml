@@ -6,11 +6,14 @@ env:
 before_install:
   - sudo apt-get update
   - wget http://mirrors.kernel.org/ubuntu/pool/main/p/pbuilder/pbuilder_0.215ubuntu7_all.deb
+  - wget http://mirrors.kernel.org/ubuntu/pool/universe/p/piuparts/piuparts-common_0.59_all.deb
+  - wget http://mirrors.kernel.org/ubuntu/pool/universe/p/piuparts/piuparts_0.59_all.deb
   - wget https://ftp-master.debian.org/keys/archive-key-7.0.asc
 
 install:
   - sudo apt-get install pbuilder gnupg piuparts
   - sudo dpkg -i pbuilder*deb
+  - sudo dpkg -i piuparts*deb
   - gpg --import $PWD/archive-key-7.0.asc
 
 before_script:
@@ -22,5 +25,4 @@ before_script:
 
 script:
   - pdebuild --buildresult ..
-  - mount
   - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ../rtsp-conntrack-dkms_*_all.deb
