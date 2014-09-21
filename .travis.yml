@@ -12,7 +12,7 @@ before_install:
   - wget https://ftp-master.debian.org/keys/archive-key-7.0.asc
 
 install:
-  - sudo apt-get remove --purget binfmt-support
+  - sudo apt-get remove --purge binfmt-support
   - sudo apt-get install pbuilder gnupg piuparts debootstrap debsums python-distro-info
   - sudo dpkg -i debootstrap*deb
   - sudo dpkg -i pbuilder*deb
