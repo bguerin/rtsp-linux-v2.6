@@ -6,8 +6,8 @@ env:
 before_install:
   - sudo apt-get update
   - wget http://mirrors.kernel.org/ubuntu/pool/main/p/pbuilder/pbuilder_0.215ubuntu7_all.deb
-  - wget http://mirrors.kernel.org/ubuntu/pool/universe/p/piuparts/piuparts-common_0.59_all.deb
-  - wget http://mirrors.kernel.org/ubuntu/pool/universe/p/piuparts/piuparts_0.59_all.deb
+  - wget http://mirrors.kernel.org/ubuntu/pool/universe/p/piuparts/piuparts-common_0.56ubuntu1_all.deb
+  - wget http://mirrors.kernel.org/ubuntu/pool/universe/p/piuparts/piuparts_0.56ubuntu1_all.deb
   - wget https://ftp-master.debian.org/keys/archive-key-7.0.asc
 
 install:
