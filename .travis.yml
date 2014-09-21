@@ -11,7 +11,7 @@ before_install:
   - wget https://ftp-master.debian.org/keys/archive-key-7.0.asc
 
 install:
-  - sudo apt-get install pbuilder gnupg piuparts
+  - sudo apt-get install pbuilder gnupg piuparts debsums python-distro-info
   - sudo dpkg -i pbuilder*deb
   - sudo dpkg -i piuparts*deb
   - gpg --import $PWD/archive-key-7.0.asc
