@@ -22,6 +22,7 @@ install:
   - sudo dpkg -i pbuilder*deb
   - sudo dpkg -i piuparts*deb
   - gpg --import $PWD/archive-key-7.0.asc
+  - sudo cp piuparts /usr/sbin/piuparts
 
 before_script:
   - echo "MIRRORSITE=${MIRROR}" >> ~/.pbuilderrc
