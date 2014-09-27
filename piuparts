@@ -847,7 +847,7 @@ class Chroot:
             self.terminate_running_processes()
             if not settings.schroot:
                 self.unmount_selinux()
-                run(["lsof"])
+                #run(["lsof"])
                 self.run(["apt-get", "-yf", "install", "lsof"])
                 self.run(["lsof"])
                 self.unmount_proc()
@@ -1529,7 +1529,7 @@ class Chroot:
 
     def unmount_proc(self):
         """Unmount /proc inside chroot."""
-        self.run(["umount", "/proc"], ignore_errors=True)
+        self.run(["umount", "-f", "/proc"], ignore_errors=True)
         for bindmount in settings.bindmounts:
             run(["umount", self.relative(bindmount)], ignore_errors=True)
 
