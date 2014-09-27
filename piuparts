@@ -847,7 +847,9 @@ class Chroot:
             self.terminate_running_processes()
             if not settings.schroot:
                 self.unmount_selinux()
-                run(['lsof'])
+                run(["lsof", "-w", "+D", self.name])
+                self.run(["apt-get", "-yf", "install", "lsof"])
+                self.run(["'lsof"])
                 self.unmount_proc()
             if settings.lvm_volume:
                 logging.debug('Unmounting and removing LVM snapshot %s' % self.lvm_snapshot_name)
