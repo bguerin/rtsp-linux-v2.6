@@ -12,17 +12,11 @@ before_install:
   - wget https://ftp-master.debian.org/keys/archive-key-7.0.asc
 
 install:
-  - mount
-  - dpkg -l
-  - lsof
-  - sudo umount /proc/sys/fs/binfmt_misc
-  - mount
   - sudo apt-get install pbuilder gnupg piuparts debootstrap debsums python-distro-info
   - sudo dpkg -i debootstrap*deb
   - sudo dpkg -i pbuilder*deb
   - sudo dpkg -i piuparts*deb
   - gpg --import $PWD/archive-key-7.0.asc
-  - sudo cp piuparts /usr/sbin/piuparts
 
 before_script:
   - echo "MIRRORSITE=${MIRROR}" >> ~/.pbuilderrc
