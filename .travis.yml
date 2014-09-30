@@ -17,7 +17,7 @@ install:
   - lsof
   - sudo umount /proc/sys/fs/binfmt_misc
   - mount
-  - sudo apt-get install pbuilder gnupg piuparts debootstrap debsums python-distro-info tee
+  - sudo apt-get install pbuilder gnupg piuparts debootstrap debsums python-distro-info
   - sudo dpkg -i debootstrap*deb
   - sudo dpkg -i pbuilder*deb
   - sudo dpkg -i piuparts*deb
