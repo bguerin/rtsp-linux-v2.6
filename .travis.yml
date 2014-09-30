@@ -17,7 +17,7 @@ install:
   - lsof
   - sudo umount /proc/sys/fs/binfmt_misc
   - mount
-  - sudo apt-get install pbuilder gnupg piuparts debootstrap debsums python-distro-info
+  - sudo apt-get install pbuilder gnupg piuparts debootstrap debsums python-distro-info tee
   - sudo dpkg -i debootstrap*deb
   - sudo dpkg -i pbuilder*deb
   - sudo dpkg -i piuparts*deb
@@ -33,4 +33,5 @@ before_script:
 
 script:
   - pdebuild --buildresult ..
-  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ../rtsp-conntrack-dkms_*_all.deb
+  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ../rtsp-conntrack-dkms_*_all.deb 2>&1 | tee -a piuparts.log || true
+  - grep -q 'ERROR:' ../piuparts.log && return 1
