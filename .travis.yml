@@ -4,6 +4,7 @@ env:
   - DIST=wheezy MIRROR=http://http.debian.net/debian/
 
 before_install:
+  - uname -a
   - sudo apt-get update
   - wget http://mirrors.kernel.org/ubuntu/pool/main/d/debootstrap/debootstrap_1.0.59ubuntu0.1_all.deb
   - wget http://mirrors.kernel.org/ubuntu/pool/main/p/pbuilder/pbuilder_0.215ubuntu7_all.deb
@@ -27,5 +28,4 @@ before_script:
 
 script:
   - pdebuild --buildresult ..
-  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ../rtsp-conntrack-dkms_*_all.deb || true
-  - losetup -a
+  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ../rtsp-conntrack-dkms_*_all.deb
