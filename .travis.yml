@@ -27,5 +27,5 @@ before_script:
 
 script:
   - pdebuild --buildresult ..
-  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ../rtsp-conntrack-dkms_*_all.deb 2>&1 | tee -a ../piuparts.log || true
-  - grep -q 'ERROR:' ../piuparts.log && return 1
+  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ../rtsp-conntrack-dkms_*_all.deb || true
+  - losetup -a
