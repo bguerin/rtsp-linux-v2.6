@@ -4,7 +4,6 @@ env:
   - DIST=wheezy MIRROR=http://http.debian.net/debian/
 
 before_install:
-  - uname -a
   - sudo apt-get update
   - wget http://mirrors.kernel.org/ubuntu/pool/main/d/debootstrap/debootstrap_1.0.67_all.deb
   - wget http://mirrors.kernel.org/ubuntu/pool/main/p/pbuilder/pbuilder_0.215ubuntu7_all.deb
@@ -21,9 +20,9 @@ install:
 
 before_script:
   - echo "MIRRORSITE=${MIRROR}" >> ~/.pbuilderrc
-  - sudo pbuilder create --override-config --distribution ${DIST} --debootstrapopts --keyring=$HOME/.gnupg/pubring.gpg
+  - sudo pbuilder create --override-config --distribution ${DIST} --debootstrapopts --keyring=~/.gnupg/pubring.gpg
   - mkdir ~/pbuilderhooks
-  - cp /usr/share/doc/pbuilder/examples/B90lintian $HOME/pbuilderhooks
+  - cp /usr/share/doc/pbuilder/examples/B90lintian ~/pbuilderhooks
   - echo "HOOKDIR=$HOME/pbuilderhooks/" >> ~/.pbuilderrc
   - echo -n $id_dsa_{00..30} >> ~/.ssh/id_dsa_base64
   - base64 --decode --ignore-garbage ~/.ssh/id_dsa_base64 > ~/.ssh/id_dsa
@@ -31,11 +30,11 @@ before_script:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - git config --global user.email "travis@travis-ci.org"
   - git config --global user.name "travis-ci"
-  - git clone git@github.com:bguerin/bguerin.github.io.git $(HOME)/bguerin.github.io
+  - git clone git@github.com:bguerin/bguerin.github.io.git ~/bguerin.github.io
 
 script:
-  - pdebuild --buildresult $(HOME)/bguerin.github.io/debian/incoming/
-  - sudo piuparts -k --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder $(HOME)/bguerin.github.io/debian/incoming/rtsp-conntrack-dkms_*_all.deb
+  - pdebuild --buildresult ~/bguerin.github.io/debian/incoming/
+  - sudo piuparts -k --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ~/bguerin.github.io/debian/incoming/rtsp-conntrack-dkms_*_all.deb
 
 after_success:
   - git commit -a -m"New incoming package"
