@@ -3,7 +3,7 @@ Section: kernel
 Priority: optional
 Maintainer: Benoit Guerin <benoit.guerin@gmail.com>
 Build-Depends: debhelper (>= 7), dkms
-Standards-Version: 3.9.4
+Standards-Version: 3.9.6
 Homepage: https://github.com/maru-sama/rtsp-linux-v2.6
 Vcs-Git: git://github.com/maru-sama/rtsp-linux-v2.6.git
 Vcs-Browser: https://github.com/maru-sama/rtsp-linux-v2.6
