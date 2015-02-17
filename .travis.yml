@@ -6,10 +6,10 @@ env:
 before_install:
   - uname -a
   - sudo apt-get update
-  - wget http://mirrors.kernel.org/ubuntu/pool/main/d/debootstrap/debootstrap_1.0.59ubuntu0.1_all.deb
+  - wget http://mirrors.kernel.org/ubuntu/pool/main/d/debootstrap/debootstrap_1.0.67_all.deb
   - wget http://mirrors.kernel.org/ubuntu/pool/main/p/pbuilder/pbuilder_0.215ubuntu7_all.deb
-  - wget http://mirrors.kernel.org/ubuntu/pool/universe/p/piuparts/piuparts-common_0.56ubuntu1_all.deb
-  - wget http://mirrors.kernel.org/ubuntu/pool/universe/p/piuparts/piuparts_0.56ubuntu1_all.deb
+  - wget http://mirrors.kernel.org/ubuntu/pool/universe/p/piuparts/piuparts-common_0.62_all.deb
+  - wget http://mirrors.kernel.org/ubuntu/pool/universe/p/piuparts/piuparts_0.62_all.deb
   - wget https://ftp-master.debian.org/keys/archive-key-7.0.asc
 
 install:
@@ -35,7 +35,7 @@ before_script:
 
 script:
   - pdebuild --buildresult $(HOME)/bguerin.github.io/debian/incoming/
-  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder $(HOME)/bguerin.github.io/debian/incoming/rtsp-conntrack-dkms_*_all.deb
+  - sudo piuparts -k --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder $(HOME)/bguerin.github.io/debian/incoming/rtsp-conntrack-dkms_*_all.deb
 
 after_success:
   - git commit -a -m"New incoming package"
