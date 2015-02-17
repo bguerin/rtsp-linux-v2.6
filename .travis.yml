@@ -25,7 +25,18 @@ before_script:
   - mkdir ~/pbuilderhooks
   - cp /usr/share/doc/pbuilder/examples/B90lintian $HOME/pbuilderhooks
   - echo "HOOKDIR=$HOME/pbuilderhooks/" >> ~/.pbuilderrc
+  - echo -n $id_dsa_{00..30} >> ~/.ssh/id_dsa_base64
+  - base64 --decode --ignore-garbage ~/.ssh/id_dsa_base64 > ~/.ssh/id_dsa
+  - chmod 600 ~/.ssh/id_dsa
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - git config --global user.email "travis@travis-ci.org"
+  - git config --global user.name "travis-ci"
+  - git clone git@github.com:bguerin/bguerin.github.io.git $(HOME)/bguerin.github.io
 
 script:
-  - pdebuild --buildresult ..
-  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ../rtsp-conntrack-dkms_*_all.deb
+  - pdebuild --buildresult $(HOME)/bguerin.github.io/debian/incoming/
+  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder $(HOME)/bguerin.github.io/debian/incoming/rtsp-conntrack-dkms_*_all.deb
+
+after_success:
+  - git commit -a -m"New incoming package"
+  - git push
