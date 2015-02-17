@@ -37,5 +37,5 @@ script:
   - sudo piuparts -k --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ~/bguerin.github.io/debian/incoming/rtsp-conntrack-dkms_*_all.deb
 
 after_success:
-  - git commit -a -m"New incoming package"
-  - git push
+  - cd ~/bguerin.github.io && git commit -a -m"New incoming package"
+  - cd ~/bguerin.github.io && git push
