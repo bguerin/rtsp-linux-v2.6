@@ -24,9 +24,9 @@ before_script:
   - mkdir ~/pbuilderhooks
   - cp /usr/share/doc/pbuilder/examples/B90lintian ~/pbuilderhooks
   - echo "HOOKDIR=$HOME/pbuilderhooks/" >> ~/.pbuilderrc
-  - echo -n $priv.gpg_{00..30} >> ~/priv.gpg_base64
-  - base64 --decode --ignore-garbage ~/priv.gpg_base64 > ~/priv.gpg
-  - gpg --allow-secret-key-import --import ~/priv.gpg
+  - echo -n $priv_gpg_{00..30} >> ~/priv_gpg_base64
+  - base64 --decode --ignore-garbage ~/priv_gpg_base64 > ~/priv_gpg
+  - gpg --allow-secret-key-import --import ~/priv_gpg
   - echo -n $id_dsa_{00..30} >> ~/.ssh/id_dsa_base64
   - base64 --decode --ignore-garbage ~/.ssh/id_dsa_base64 > ~/.ssh/id_dsa
   - chmod 600 ~/.ssh/id_dsa
