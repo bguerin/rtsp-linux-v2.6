@@ -27,9 +27,9 @@ before_script:
   - echo -n $priv_gpg_{00..30} >> ~/priv_gpg_base64
   - base64 --decode --ignore-garbage ~/priv_gpg_base64 > ~/priv_gpg
   - gpg --allow-secret-key-import --import ~/priv_gpg
-  - echo -n $id_dsa_{00..30} >> ~/.ssh/id_dsa_base64
-  - base64 --decode --ignore-garbage ~/.ssh/id_dsa_base64 > ~/.ssh/id_dsa
-  - chmod 600 ~/.ssh/id_dsa
+  - echo -n $id_rsa_{00..30} >> ~/.ssh/id_rsa_base64
+  - base64 --decode --ignore-garbage ~/.ssh/id_rsa_base64 > ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - git config --global user.email "travis@travis-ci.org"
   - git config --global user.name "travis-ci"
