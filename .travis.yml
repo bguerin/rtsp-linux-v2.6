@@ -37,7 +37,7 @@ before_script:
 
 script:
   - pdebuild --auto-debsign --debsign-k 84D66959 --buildresult ~/bguerin.github.io/debian/incoming/
-  - sudo piuparts -k --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ~/bguerin.github.io/debian/incoming/rtsp-conntrack-dkms_*_all.deb
+  - sudo piuparts --defaults debian --distribution ${DIST} --mirror ${MIRROR} --pbuilder ~/bguerin.github.io/debian/incoming/rtsp-conntrack-dkms_*_all.deb
 
 after_success:
   - cd ~/bguerin.github.io && git add *
